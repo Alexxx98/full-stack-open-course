@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+
+    Note left of server: The server creates new item in notes list
+
+    server-->>browser: Sends previously created note
+    deactivate server
+
+    Note right of browser: The browser triggers the JS function and updates notes via DOM API
